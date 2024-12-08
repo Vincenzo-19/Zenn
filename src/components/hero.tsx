@@ -12,7 +12,7 @@ export const Hero = () => {
                 </div>
                 <div>
                     <img
-                        src="/src/images/yoga.png"
+                        src="/src/images/yoga.webp"
                         alt="yoga-image"
                         className="w-32 h-32 md:w-56 md:h-56"
                     />

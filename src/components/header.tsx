@@ -14,11 +14,13 @@ export const Header = () => {
                 <nav className="md:flex md:justify-between md:items-center">
                     <div className="flex justify-between">
                         <div className="h-16 ml-2 md:ml-18">
-                            <img
-                                src="/src/images/zenn.webp"
-                                alt=""
-                                className="bg-cover h-full"
-                            />
+                            <a href="#">
+                                <img
+                                    src="/src/images/zenn.webp"
+                                    alt="zenn-logo"
+                                    className="bg-cover h-full"
+                                />
+                            </a>
                         </div>
 
                         <button
