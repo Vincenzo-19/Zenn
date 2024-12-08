@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header';
 import MediTimer from './components/meditimer';
-// import { Main } from './components/main';
+import Main from './components/main';
 
 function App() {
     return (
@@ -11,7 +11,7 @@ function App() {
                     <Route path="/" element={<Header />} />
                     <Route path="/meditimer" element={<MediTimer />} />
                 </Routes>
-                {/* <Main /> */}
+                <Main />
             </Router>
         </>
     );

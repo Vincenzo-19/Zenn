@@ -10,7 +10,7 @@ export const Header = () => {
 
     return (
         <>
-            <header className="bg-primaryColor min-w-full ">
+            <header className="bg-primaryColor min-w-full sticky top-0 z-10">
                 <nav className="md:flex md:justify-between md:items-center">
                     <div className="flex justify-between">
                         <div className="h-16 ml-2 md:ml-18">
