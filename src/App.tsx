@@ -1,19 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/header';
-import MediTimer from './components/meditimer';
-import Main from './components/main';
-import Footer from './components/footer';
+import Home from './pages/home';
+import Timer from './pages/timer';
 
 function App() {
     return (
         <>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Header />} />
-                    <Route path="/meditimer" element={<MediTimer />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/meditimer" element={<Timer />} />
                 </Routes>
-                <Main />
-                <Footer />
             </Router>
         </>
     );

@@ -47,8 +47,8 @@ export const Header = () => {
                             </li>
                             <li className="mb-5 md:mb-0 md:flex md:items-center">
                                 <Link to="/MediTimer">
-                                    <button className="text-secondaryColor font-semibold underline md:no-underline md:text-black md:px-5 md:py-2 md:bg-thirdColor  md:rounded-3xl md:hover:bg-fifthColor md:active:bg-fourthColor">
-                                        MediTimer
+                                    <button className="text-secondaryColor font-semibold underline md:no-underline md:text-black md:px-6 md:py-2 md:bg-thirdColor  md:rounded-3xl md:hover:bg-fifthColor md:active:bg-fourthColor">
+                                        Timer
                                     </button>
                                 </Link>
                             </li>
