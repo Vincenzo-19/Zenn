@@ -1,69 +1,39 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as TimerActions from '../../store/timer/timer.actions';
+import { SELECT_TIMER } from '../../store/timer/timer.selectors';
 
-export const CountDown = () => {
-    const [time, setTime] = useState(0);
-    const [isActive, setIsActive] = useState(false);
-    const [isPaused, setIsPaused] = useState(false);
+export const TimerComponent = () => {
+    const { time, isActive, isPaused } = useSelector(SELECT_TIMER);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        // definizione valori interval
         let interval: number | null = null;
 
-        // se il timer è attivo e non è in pausa
-        if (isActive && !isPaused) {
+        if (isActive && !isPaused && time > 0) {
             interval = setInterval(() => {
-                setTime((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+                dispatch(TimerActions.SET_TIME(time));
             }, 1000);
-            // se il timer non è attivo e il tempo è diverso da 0 e c'è un interval
-        } else if (!isActive && time !== 0 && interval) {
-            clearInterval(interval);
+        } else if (time === 0) {
+            dispatch(TimerActions.PAUSE_TIMER(true));
         }
-
         return () => {
             if (interval) {
                 clearInterval(interval);
             }
         };
-    }, [isActive, isPaused, time]);
+    }, [isActive, isPaused, time, dispatch]);
 
     //
     //
     //
 
-    // funzioni per gestire il timer
+    // funzione per formattare il timer
 
-    const handleStart = () => {
-        setIsActive(true);
-        setIsPaused(false);
-    };
-
-    const handlePause = () => {
-        setIsPaused(true);
-    };
-
-    const handleReset = () => {
-        setIsActive(false);
-        setIsPaused(false);
-        setTime(0);
-    };
-
-    const incrementTime = () => {
-        if (!isActive) {
-            setTime((prevTime) => prevTime + 60); // Incrementa di 1 minuto
-        }
-    };
-
-    const decrementTime = () => {
-        if (!isActive) {
-            setTime((prevTime) => (prevTime >= 60 ? prevTime - 60 : 0)); // Decrementa di 1 minuto
-        }
-    };
-
-    // funzione per formattare il tempo visualizzato nel timer
     const formatTime = (time: number) => {
-        const minutes = Math.floor(time / 60);
-        const seconds = time % 60;
-        return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(
+        const MINUTES = Math.floor(time / 60);
+        const SECONDS = time % 60;
+        return `${String(MINUTES).padStart(2, '0')}:${String(SECONDS).padStart(
             2,
             '0'
         )}`;
@@ -83,7 +53,11 @@ export const CountDown = () => {
                             </h1>
                             <div className="flex flex-row items-center mt-16 gap-10 sm:gap-16">
                                 <button
-                                    onClick={decrementTime}
+                                    onClick={() =>
+                                        dispatch(
+                                            TimerActions.DECREMENT_TIME(60)
+                                        )
+                                    }
                                     className={`size-8 rounded-full bg-primaryColor text-secondaryColor hover:opacity-80 ${
                                         isActive
                                             ? 'opacity-50 cursor-not-allowed'
@@ -94,7 +68,11 @@ export const CountDown = () => {
                                     -
                                 </button>
                                 <button
-                                    onClick={incrementTime}
+                                    onClick={() =>
+                                        dispatch(
+                                            TimerActions.INCREMENT_TIME(60)
+                                        )
+                                    }
                                     className={`size-8 rounded-full bg-primaryColor text-secondaryColor hover:opacity-80 ${
                                         isActive
                                             ? 'opacity-50 cursor-not-allowed'
@@ -109,19 +87,23 @@ export const CountDown = () => {
                     </div>
                     <div className="mt-16 sm:mt-8 mb-16 flex flex-row space-x-4">
                         <button
-                            onClick={handleStart}
+                            onClick={() =>
+                                dispatch(TimerActions.START_TIMER(true))
+                            }
                             className="text-sm sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Start
                         </button>
                         <button
-                            onClick={handlePause}
+                            onClick={() =>
+                                dispatch(TimerActions.PAUSE_TIMER(true))
+                            }
                             className="text-sm sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Pause
                         </button>
                         <button
-                            onClick={handleReset}
+                            onClick={() => dispatch(TimerActions.RESET_TIMER())}
                             className="text-sm sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Reset
@@ -133,4 +115,4 @@ export const CountDown = () => {
     );
 };
 
-export default CountDown;
+export default TimerComponent;

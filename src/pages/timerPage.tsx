@@ -1,13 +1,13 @@
 import Header from '../components/home/header';
-import CountDown from '../components/timer/countDown';
-import IstruzioniTimer from '../components/timer/istruzioniTimer';
+import TimerComponent from '../components/timerPage/timer';
+import IstruzioniTimer from '../components/timerPage/istruzioniTimer';
 import Footer from '../components/home/footer';
 
 export const Timer = () => {
     return (
         <>
             <Header />
-            <CountDown />
+            <TimerComponent />
             <IstruzioniTimer />
             <Footer />
         </>

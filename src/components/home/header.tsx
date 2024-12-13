@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as NavbarActions from '../../store/navbar/navbar.actions';
+import { SELECT_NAVBAR } from '../../store/navbar/navbar.selector';
 
 export const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const isMenuOpen = useSelector(SELECT_NAVBAR);
+    const dispatch = useDispatch();
 
-    function toggleMenu() {
-        setIsMenuOpen(!isMenuOpen);
+    function handletoggleMenu() {
+        dispatch(NavbarActions.TOGGLE_MENU(!isMenuOpen));
     }
 
     return (
@@ -25,7 +28,7 @@ export const Header = () => {
 
                         <button
                             className="md:hidden text-secondaryColor font-semibold text-2xl mr-6"
-                            onClick={toggleMenu}
+                            onClick={handletoggleMenu}
                         >
                             ☰
                         </button>
@@ -46,7 +49,7 @@ export const Header = () => {
                                 </Link>
                             </li>
                             <li className="mb-5 md:mb-0 md:flex md:items-center">
-                                <Link to="/MediTimer">
+                                <Link to="/Timer">
                                     <button className="text-secondaryColor font-semibold underline md:no-underline md:text-black md:px-6 md:py-2 md:bg-thirdColor  md:rounded-3xl md:hover:bg-fifthColor md:active:bg-fourthColor">
                                         Timer
                                     </button>

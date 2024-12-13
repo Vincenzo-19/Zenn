@@ -1,6 +1,7 @@
+// Routing
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
-import Timer from './pages/timer';
+import TimerPage from './pages/timerPage';
 
 function App() {
     return (
@@ -8,7 +9,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/meditimer" element={<Timer />} />
+                    <Route path="/Timer" element={<TimerPage />} />
                 </Routes>
             </Router>
         </>

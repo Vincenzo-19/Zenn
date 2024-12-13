@@ -21,7 +21,7 @@ export const IstruzioniTimer = () => {
                                 </p>
                             </div>
                             {/* Card 2 */}
-                            <div className="lg:w-10/12 m-auto p-10 mb-16 lg:rounded-3xl lg:bg-gradient-to-bl lg:from-white lg:from-30% lg:to-thirdColor">
+                            <div className="lg:w-10/12 m-auto p-10 mb-16 lg:rounded-3xl lg:bg-gradient-to-br lg:from-white lg:from-30% lg:to-thirdColor">
                                 <h3 className="text-lg md:text-xl font-bold text-primaryColor mb-5">
                                     2. Timer
                                 </h3>
