@@ -1,3 +1,3 @@
 export const NAVBAR_ACTIONS_TYPES = {
-    TOGGLE_MENU: 'navbar/toggleMenu',
+    TOGGLE_MENU: 'navbar/TOOGLE_MENU',
 };

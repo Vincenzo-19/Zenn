@@ -1,8 +1,8 @@
 export const TIMER_ACTIONS_TYPES = {
-    START: 'START',
-    PAUSE: 'PAUSE',
-    RESET: 'RESET',
-    INCREMENT: 'INCREMENT',
-    DECREMENT: 'DECREMENT',
-    TICK: 'TICK',
+    START: 'timer/START',
+    PAUSE: 'timer/PAUSE',
+    RESET: 'timer/RESET',
+    INCREMENT: 'timer/INCREMENT',
+    DECREMENT: 'timer/DECREMENT',
+    TICK: 'timer/TICK',
 };

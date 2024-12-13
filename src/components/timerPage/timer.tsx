@@ -2,13 +2,15 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as TimerActions from '../../store/timer/timer.actions';
 import { SELECT_TIMER } from '../../store/timer/timer.selectors';
+import { addButtonTouchListeners } from '../../utils/buttonUtils';
+import { formatTime } from '../../utils/formatTimeUtils';
 
 export const TimerComponent = () => {
     const { time, isActive, isPaused } = useSelector(SELECT_TIMER);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        let interval: number | null = null;
+        let interval: NodeJS.Timeout | null = null;
 
         if (isActive && !isPaused && time > 0) {
             interval = setInterval(() => {
@@ -28,16 +30,7 @@ export const TimerComponent = () => {
     //
     //
 
-    // funzione per formattare il timer
-
-    const formatTime = (time: number) => {
-        const MINUTES = Math.floor(time / 60);
-        const SECONDS = time % 60;
-        return `${String(MINUTES).padStart(2, '0')}:${String(SECONDS).padStart(
-            2,
-            '0'
-        )}`;
-    };
+    addButtonTouchListeners();
 
     return (
         <>
@@ -58,7 +51,7 @@ export const TimerComponent = () => {
                                             TimerActions.DECREMENT_TIME(60)
                                         )
                                     }
-                                    className={`size-8 rounded-full bg-primaryColor text-secondaryColor hover:opacity-80 ${
+                                    className={`size-8 outline-none rounded-full bg-primaryColor text-secondaryColor hover:opacity-80 ${
                                         isActive
                                             ? 'opacity-50 cursor-not-allowed'
                                             : ''
@@ -73,7 +66,7 @@ export const TimerComponent = () => {
                                             TimerActions.INCREMENT_TIME(60)
                                         )
                                     }
-                                    className={`size-8 rounded-full bg-primaryColor text-secondaryColor hover:opacity-80 ${
+                                    className={`size-8 outline-none rounded-full bg-primaryColor text-secondaryColor hover:opacity-80 ${
                                         isActive
                                             ? 'opacity-50 cursor-not-allowed'
                                             : ''
@@ -90,7 +83,7 @@ export const TimerComponent = () => {
                             onClick={() =>
                                 dispatch(TimerActions.START_TIMER(true))
                             }
-                            className="text-sm sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
+                            className="text-sm outline-none sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Start
                         </button>
@@ -98,13 +91,13 @@ export const TimerComponent = () => {
                             onClick={() =>
                                 dispatch(TimerActions.PAUSE_TIMER(true))
                             }
-                            className="text-sm sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
+                            className="text-sm outline-none sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Pause
                         </button>
                         <button
                             onClick={() => dispatch(TimerActions.RESET_TIMER())}
-                            className="text-sm sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
+                            className="text-sm outline-none sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Reset
                         </button>

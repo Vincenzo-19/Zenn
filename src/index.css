@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 *,
 *::after,
 *::before {
@@ -47,4 +48,16 @@ input[type='range']::-moz-range-thumb {
     border-radius: 50%;
     background: #ca4322;
     cursor: pointer;
+}
+
+.comfortaa {
+    font-family: 'Comfortaa', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1,
+p {
+    @apply font-comfortaa;
 }

@@ -17,6 +17,9 @@ export default {
                 forthColor: '#ebc49f',
                 fifthColor: '#e4aa86',
             },
+            fontFamily: {
+                comfortaa: ['Comfortaa', 'sans-serif'],
+            },
             margin: {
                 18: '4.5rem',
             },
