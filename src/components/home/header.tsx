@@ -19,7 +19,7 @@ export const Header = () => {
                         <div className="h-16 ml-2 md:ml-18">
                             <a href="#">
                                 <img
-                                    src="/src/images/zenn.webp"
+                                    src="/images/zenn.webp"
                                     alt="zenn-logo"
                                     className="bg-cover h-full"
                                 />

@@ -13,7 +13,7 @@ export const Footer = () => {
                         rel="noopener"
                     >
                         <img
-                            src="/src/images/github.webp"
+                            src="/images/github.webp"
                             alt="github-logo"
                             className="w-8 h-8 sm:w-10 sm:h-10"
                             loading="lazy"
@@ -25,7 +25,7 @@ export const Footer = () => {
                         rel="noopener"
                     >
                         <img
-                            src="/src/images/linkedin-logo.webp"
+                            src="/images/linkedin-logo.webp"
                             alt="linkedin-logo"
                             className="w-8 h-8 sm:w-10 sm:h-10"
                             loading="lazy"

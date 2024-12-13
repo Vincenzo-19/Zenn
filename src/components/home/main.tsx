@@ -29,7 +29,7 @@ export const Main = () => {
             <section className="min-w-full flex justify-center">
                 <div className="relative w-full h-52 overflow-hidden">
                     <img
-                        src="/src/images/fiore.webp"
+                        src="/images/fiore.webp"
                         alt="Meditation"
                         className="w-full"
                         loading="lazy"
@@ -63,7 +63,7 @@ export const Main = () => {
                         </div>
                         <div>
                             <img
-                                src="/src/images/water.webp"
+                                src="/images/water.webp"
                                 alt="water-icon"
                                 className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28"
                                 loading="lazy"
@@ -83,7 +83,7 @@ export const Main = () => {
                         </div>
                         <div>
                             <img
-                                src="/src/images/focus-points.webp"
+                                src="/images/focus-points.webp"
                                 alt="focus-icon"
                                 className="w-20 h-20 sm:w-24 sm:h-24"
                                 loading="lazy"
@@ -102,7 +102,7 @@ export const Main = () => {
                         </div>
                         <div>
                             <img
-                                src="/src/images/idea.webp"
+                                src="/images/idea.webp"
                                 alt="water-icon"
                                 className="w-20 h-20 sm:w-24 sm:h-24"
                                 loading="lazy"
