@@ -3,10 +3,12 @@ export const Footer = () => {
         <footer className="bg-primaryColor text-white py-8">
             <div className="container mx-auto flex flex-col-reverse sm:flex-row justify-between items-center">
                 <div className="sm:ml-8">
-                    <h3 className="text-center sm:text-start text-2xl font-bold mb-4">
+                    <h3 className="text-center sm:text-start text-2xl font-bold mb-4 text-secondaryColor">
                         Zenn
                     </h3>
-                    <p className="text-sm">© 2024 Zenn. All rights reserved.</p>
+                    <p className="text-sm text-secondaryColor">
+                        © 2024 Zenn. All rights reserved.
+                    </p>
                 </div>
                 <div className="flex gap-8 mb-8 sm:mb-0 sm:mr-8">
                     <a
