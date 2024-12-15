@@ -11,7 +11,7 @@ https://zennapp.netlify.app/
 
 <p>Qui sotto c'è il link per la presentazione⬇️</p>
 
-https://1drv.ms/b/c/2151af0b03d46d87/EdGN1BuQ9VFNgotmk0sxKGMBwB7qx71JTlkFPX7RCHTtoQ?e=nardDf
+https://1drv.ms/b/c/2151af0b03d46d87/ET7FzTgwkjtPgtSLCJu83bgBlhT6IFZmYjhe4zM5FLQZwA?e=A30Qn8
 
 <h2>Tecnologie Utilizzate</h2>
 
