@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as TimerActions from '../../store/timer/timer.actions';
-import { SELECT_TIMER } from '../../store/timer/timer.selectors';
+// import * as TimerActions from '../../store/timer/timer.actions';
+// import { SELECT_TIMER } from '../../store/timer/timer.selectors';
+import * as timerActions from '../../store/timer/timerSlice';
 import { addButtonTouchListeners } from '../../utils/buttonUtils';
 import { formatTime } from '../../utils/formatTimeUtils';
 
 export const TimerComponent = () => {
-    const { time, isActive, isPaused } = useSelector(SELECT_TIMER);
+    const { time, isActive, isPaused } = useSelector(timerActions.selectTimer);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -14,10 +15,10 @@ export const TimerComponent = () => {
 
         if (isActive && !isPaused && time > 0) {
             interval = setInterval(() => {
-                dispatch(TimerActions.SET_TIME(time));
+                dispatch(timerActions.decrementTime(1));
             }, 1000);
         } else if (time === 0) {
-            dispatch(TimerActions.PAUSE_TIMER(true));
+            dispatch(timerActions.pauseTimer());
         }
         return () => {
             if (interval) {
@@ -47,9 +48,7 @@ export const TimerComponent = () => {
                             <div className="flex flex-row items-center mt-16 gap-10 sm:gap-16">
                                 <button
                                     onClick={() =>
-                                        dispatch(
-                                            TimerActions.DECREMENT_TIME(60)
-                                        )
+                                        dispatch(timerActions.decrementTime(60))
                                     }
                                     className={`size-8 outline-none rounded-full bg-primaryColor text-secondaryColor hover:opacity-80 ${
                                         isActive
@@ -62,9 +61,7 @@ export const TimerComponent = () => {
                                 </button>
                                 <button
                                     onClick={() =>
-                                        dispatch(
-                                            TimerActions.INCREMENT_TIME(60)
-                                        )
+                                        dispatch(timerActions.incrementTime(60))
                                     }
                                     className={`size-8 outline-none rounded-full bg-primaryColor text-secondaryColor hover:opacity-80 ${
                                         isActive
@@ -80,23 +77,19 @@ export const TimerComponent = () => {
                     </div>
                     <div className="mt-16 sm:mt-8 mb-16 flex flex-row space-x-4">
                         <button
-                            onClick={() =>
-                                dispatch(TimerActions.START_TIMER(true))
-                            }
+                            onClick={() => dispatch(timerActions.startTimer())}
                             className="text-sm outline-none sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Start
                         </button>
                         <button
-                            onClick={() =>
-                                dispatch(TimerActions.PAUSE_TIMER(true))
-                            }
+                            onClick={() => dispatch(timerActions.pauseTimer())}
                             className="text-sm outline-none sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Pause
                         </button>
                         <button
-                            onClick={() => dispatch(TimerActions.RESET_TIMER())}
+                            onClick={() => dispatch(timerActions.resetTimer())}
                             className="text-sm outline-none sm:text-base py-2 px-3 sm:px:4 rounded-3xl bg-primaryColor text-secondaryColor hover:opacity-80"
                         >
                             Reset
