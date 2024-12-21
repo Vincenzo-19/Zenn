@@ -49,7 +49,7 @@ export const Header = () => {
                                 </Link>
                             </li>
                             <li className="mb-5 md:mb-0 md:flex md:items-center">
-                                <Link to="/Timer">
+                                <Link to="/timer">
                                     <button className="text-secondaryColor font-semibold underline md:no-underline md:text-black md:px-6 md:py-2 md:bg-thirdColor  md:rounded-3xl md:hover:bg-fifthColor md:active:bg-fourthColor">
                                         Timer
                                     </button>

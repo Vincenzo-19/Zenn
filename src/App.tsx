@@ -9,7 +9,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/Timer" element={<TimerPage />} />
+                    <Route path="/timer" element={<TimerPage />} />
                 </Routes>
             </Router>
         </>
